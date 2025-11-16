@@ -1,6 +1,6 @@
-# TaimuChatto
+# Taimuchatto
 
-TaimuChatto is a full-stack chat application that allows users to communicate in real-time. This project is built using the MERN stack and other modern web technologies.
+Taimuchatto is a full-stack chat application that allows users to communicate in real-time. This project is built using the MERN stack and other modern web technologies.
 
 ## 🧋 Key Features
 

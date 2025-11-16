@@ -1,6 +1,8 @@
-import { getReceiverSocketId, userSocketMap } from "../store/socketStore.js";
+import { getReceiverSocketId, userSocketMap, setGlobalIo } from "../store/socketStore.js";
 
 export const configureSocket = (io) => {
+  // Set the global io instance for use in controllers
+  setGlobalIo(io);
   io.on("connection", (socket) => {
     console.log("A user connected", socket.id);
 

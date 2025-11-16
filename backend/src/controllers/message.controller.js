@@ -44,9 +44,28 @@ export const sendMessage = async (req, res) => {
 
         let imageUrl;
         if (image) {
-            //Upload base64 image to cloudinary
-            const uploadResponse = await cloudinary.uploader.upload(image);
-            imageUrl = uploadResponse.secure_url;
+            try {
+                // Validate that the image is in a proper format (data URL)
+                if (!image.startsWith('data:image/')) {
+                    return res.status(400).json({ error: "Invalid image format" });
+                }
+
+                // Upload base64 image to cloudinary
+                const uploadResponse = await cloudinary.uploader.upload(image);
+                imageUrl = uploadResponse.secure_url;
+            } catch (uploadError) {
+                console.error("Cloudinary upload error:", uploadError.message);
+
+                // If Cloudinary upload fails due to credentials, fallback to storing base64 for development
+                if (uploadError.message.includes("Must supply cloud_name") ||
+                    uploadError.message.includes("api_key")) {
+                    console.log("Cloudinary not configured, storing image as base64 for development");
+                    // In development mode, store the base64 image directly
+                    imageUrl = image;
+                } else {
+                    return res.status(500).json({ error: "Failed to upload image" });
+                }
+            }
         }
 
         const newMessage = new Message({
@@ -58,7 +77,9 @@ export const sendMessage = async (req, res) => {
 
         await newMessage.save();
 
-        // todo: realtime functionality goes here => socket.io
+        // Emit the message to the recipient in real-time via Socket.IO
+        const { emitToUser } = await import('../store/socketStore.js');
+        emitToUser(receiverId, "newMessage", newMessage);
 
         res.status(201).json(newMessage)
 

@@ -22,9 +22,23 @@ export const signup = async (req, res) => {
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
 
+        // Generate username from fullName by converting to lowercase, replacing spaces with dots, and removing special characters
+        let username = fullName.toLowerCase().replace(/\s+/g, '.').replace(/[^a-z0-9.]/g, '');
+
+        // Check if username already exists, if so append a number
+        let isUsernameTaken = await User.findOne({ username });
+        let counter = 1;
+        let originalUsername = username;
+        while (isUsernameTaken) {
+            username = `${originalUsername}${counter}`;
+            isUsernameTaken = await User.findOne({ username });
+            counter++;
+        }
+
         const newUser = new User({
             fullName,
             email,
+            username,
             password: hashedPassword
         });
 
